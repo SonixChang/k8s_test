@@ -243,6 +243,7 @@ kubectl create -f prometheus-lb.yml
 kubectl get svc -n monitoring
 ```
 ![Image text](https://github.com/SonixChang/k8s_test/blob/main/assets/prometheus-lb.png)
+
 可以看到一樣取得了 ip 172.18.0.142，發送請求測試
 ```
 curl 172.18.0.142:9090
