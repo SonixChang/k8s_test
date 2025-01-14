@@ -78,7 +78,7 @@ kubectl apply -f metallb-native.yaml
 kubectl apply -f metallb-frr.yaml
 ```
 ### 建立 IP 池
-L2advertisement.yml
+[L2advertisement.yml](https://github.com/SonixChang/k8s_test/blob/main/kind/cluster/L2advertisement.yaml)
 ```
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
