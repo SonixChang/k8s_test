@@ -8,7 +8,7 @@
 這邊使用 kind 官網提供的範例 yaml 來做修改，目的是建立 3 個 master node 與 4 個 worker node 。
 由於這邊我不知道為什麼無論如何都建不了 5 個以上的 node ，所以只建 1 個 master node 。
 
-[cluster.yml](http://kind/cluster/cluster.yml)
+[cluster.yml](https://github.com/SonixChang/k8s_test/blob/main/kind/cluster/cluster.yml)
 ```kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 kubeadmConfigPatches:
