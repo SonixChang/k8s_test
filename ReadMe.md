@@ -42,7 +42,7 @@ kind create cluster --config cluster.yaml
 ```
 kubectl get no
 ```
-![Image text](http://assets/nodes.png)
+![Image text](https://github.com/SonixChang/k8s_test/blob/main/assets/nodes.png)
 ## Node 分角色
 幫 worker node 分成兩個 infra node 與兩個 application node 。這邊用的方法使用 taint 。
 
@@ -89,7 +89,7 @@ spec:
   ipAddressPools:
   - first-pool
 ```
-ip-pool.yml
+[ip-pool.yml](https://github.com/SonixChang/k8s_test/blob/main/kind/cluster/ip-pool.yml)
 ```
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -110,7 +110,7 @@ kubectl create -f  L2advertisement.yml ip-pool.yml
 ### 測試
 建立 deployment 與 LoadBalancer 測試。
 
-nginx-deployment.yaml
+[nginx-deployment.yaml](https://github.com/SonixChang/k8s_test/blob/main/kind/cluster/nginx-deployment.yaml)
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -140,7 +140,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-nginx-lb.yaml
+[nginx-lb.yaml](https://github.com/SonixChang/k8s_test/blob/main/kind/cluster/nginx-lb.yaml)
 ```
 apiVersion: v1
 kind: Service
@@ -162,7 +162,7 @@ spec:
 ```
 kubectl get svc
 ```
-![Image text](http://assets/loadbalancer.png)
+![Image text](https://github.com/SonixChang/k8s_test/blob/main/assets/loadbalancer.png)
 
 IP 是 172.18.0.141:80 ，執行以下命令確定請求得到回應。
 ```
@@ -216,7 +216,7 @@ kubectl get networkpolicy -n monitoring
 會發現 prometheus-k8s NetworkPolicy 限制了 prometheus 只能被 ingress 存取。
 因為這邊我想用 Loadbalancer 存取，所以直接刪除該 NetworkPolicy 。
 
-prometheus-lb.yml
+[prometheus-lb.yml](https://github.com/SonixChang/k8s_test/blob/main/kind/prometheus-lb.yml)
 ```
 apiVersion: v1
 kind: Service
@@ -242,7 +242,7 @@ kubectl create -f prometheus-lb.yml
 ```
 kubectl get svc -n monitoring
 ```
-![Image text](http://assets/prometheus-lb.png)
+![Image text](https://github.com/SonixChang/k8s_test/blob/main/assets/prometheus-lb.png)
 可以看到一樣取得了 ip 172.18.0.142，發送請求測試
 ```
 curl 172.18.0.142:9090
