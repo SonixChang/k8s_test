@@ -1,0 +1,1 @@
+docker run --name nfs -idt -v nfs:/prometheus --privileged --network=kind -e NFS_EXPORT_1="/prometheus *(rw,sync,no_subtree_check,no_root_squash)" erichough/nfs-server

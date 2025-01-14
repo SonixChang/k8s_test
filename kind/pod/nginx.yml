@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx 
+spec:
+  tolerations:
+  - key: role
+    operator: Equal
+    value: app
+    effect: NoSchedule
+  containers:
+  - name: test-container
+    image: nginx
+    ports:
+    - containerPort: 80
